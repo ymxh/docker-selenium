@@ -38,9 +38,8 @@ ENV GRID_UNREGISTER_IF_STILL_DOWN_AFTER 60000
 
 COPY generate_config /opt/selenium/generate_config
 COPY entry_point.sh /opt/bin/entry_point.sh
-# 加执行权限，并把generate_config内容转为config.json
-RUN chmod +x /opt/bin/entry_point.sh \
-  && sh /opt/selenium/generate_config > /opt/selenium/config.json
+# 把generate_config内容转为config.json
+RUN /opt/selenium/generate_config > /opt/selenium/config.json
 
 # 执行entry_point.sh文件
 CMD ["/opt/bin/entry_point.sh"]
