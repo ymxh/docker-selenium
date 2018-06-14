@@ -5,7 +5,7 @@
 FROM ymxhtest/ds-base:2.53.1
 MAINTAINER ymxhtest <ymxhtest@163.com>
 
-USER ROOT
+USER root
 
 #========================
 # 容器监听的端口
