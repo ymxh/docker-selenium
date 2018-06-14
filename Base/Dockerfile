@@ -88,4 +88,3 @@ RUN sudo mkdir -p /opt/selenium \
   && sudo chown -R seluser:seluser /opt/selenium \
   && wget --no-verbose https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar \
     -O /opt/selenium/selenium-server-standalone.jar
-

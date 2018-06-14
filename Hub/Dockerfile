@@ -5,8 +5,6 @@
 FROM ymxhtest/ds-base:2.53.1
 MAINTAINER ymxhtest <ymxhtest@163.com>
 
-USER seluser
-
 #========================
 # 容器监听的端口
 #========================
@@ -36,12 +34,17 @@ ENV GRID_MAX_SESSION 15
 # In milliseconds
 ENV GRID_UNREGISTER_IF_STILL_DOWN_AFTER 60000
 
-COPY generate_config \
-     entry_point.sh \
-     /opt/bin/
-
+COPY generate_config /opt/selenium/generate_config
+COPY entry_point.sh /opt/bin/entry_point.sh
 # 把generate_config内容转为config.json
-RUN /opt/bin/generate_config > /opt/selenium/config.json
+RUN  chmod +x /opt/selenium/generate_config \
+  && chmod +x /opt/bin/entry_point.sh \
+  && sh /opt/selenium/generate_config > /opt/selenium/config.json
+RUN chown -R seluser:seluser /opt/selenium
+
+USER seluser
 
 # 执行entry_point.sh文件
 CMD ["/opt/bin/entry_point.sh"]
+
+
