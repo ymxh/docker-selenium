@@ -36,10 +36,12 @@ ENV GRID_MAX_SESSION 15
 # In milliseconds
 ENV GRID_UNREGISTER_IF_STILL_DOWN_AFTER 60000
 
-COPY generate_config /opt/selenium/generate_config
-COPY entry_point.sh /opt/bin/entry_point.sh
+COPY generate_config \
+     entry_point.sh \
+     /opt/bin/
+
 # 把generate_config内容转为config.json
-RUN /opt/selenium/generate_config > /opt/selenium/config.json
+RUN /opt/bin/generate_config > /opt/selenium/config.json
 
 # 执行entry_point.sh文件
 CMD ["/opt/bin/entry_point.sh"]
