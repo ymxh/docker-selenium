@@ -75,16 +75,11 @@ RUN useradd seluser \
   && echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers \
   && echo 'seluser:secret' | chpasswd
 
-#===================================================
-# 使用上面新创建的用户
-#===================================================
-USER seluser
-
 #==========
 # 新建selenium文件夹，并赋予seluser用户可操作权限
 # 下载selenium-server-2.53.1的jar包
 #==========
-RUN sudo mkdir -p /opt/selenium \
-  && sudo chown -R seluser:seluser /opt/selenium \
+RUN mkdir -p /opt/selenium \
+  && chown -R seluser:seluser /opt/selenium \
   && wget --no-verbose https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar \
     -O /opt/selenium/selenium-server-standalone.jar
