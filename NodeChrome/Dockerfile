@@ -14,9 +14,9 @@ USER root
 #=================================
 ARG CHROME_VERSION=65.0.3325.181
 RUN wget -q http://www.slimjetbrowser.com/chrome/lnx/chrome64_${CHROME_VERSION}.deb \
-    && apt-get update -y \
-    && dpkg -i chrome64_${CHROME_VERSION}.deb  >/dev/null  2>&1 \
-    && apt-get -f install -qqy \
+    && sudo apt-get update -y \
+    && sudo dpkg -i chrome64_${CHROME_VERSION}.deb  >/dev/null  2>&1 \
+    && sudo apt-get -f install -qqy \
     && sudo dpkg -i chrome64_${CHROME_VERSION}.deb
                                                                                                        
 #==================
