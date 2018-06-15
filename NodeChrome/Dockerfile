@@ -10,12 +10,9 @@ USER root
 #=================================
 # Chrome Off-line installation离线安装
 #=================================
-ARG CHROME_VERSION=65.0.3325.181
-RUN wget -q http://www.slimjetbrowser.com/chrome/lnx/chrome64_${CHROME_VERSION}.deb \
-    && apt-get update -y \
-    && dpkg -i chrome64_${CHROME_VERSION}.deb  >/dev/null  2>&1 \
-    && apt-get -f install -qqy \
-    && dpkg -i chrome64_${CHROME_VERSION}.deb
+COPY intsallchrome.sh /opt/intsallchrome
+RUN chmod +x /opt/intsallchrome
+RUN sh /opt/intsallchrome
                                                                                                        
 #==================
 # Chrome webdriver
