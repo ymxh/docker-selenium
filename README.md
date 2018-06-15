@@ -13,6 +13,6 @@
 添加node base DockerFile，基于base:2.53.1,准备node节点<br>
 ## 4.NodeChrome
 添加node chrome DockerFile，主要基于node-base:2.53.1<br>
-（1）离线安装chrome浏览器
-（2）下载chromedriver
-（3）设置node节点参数
+（1）离线安装chrome浏览器<br>
+（2）下载chromedriver<br>
+（3）设置node节点参数<br>
