@@ -26,7 +26,6 @@ RUN apt-get update -qqy \
     fluxbox \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
-USER seluser
 #==============================
 # Scripts to run Selenium Node
 #==============================
