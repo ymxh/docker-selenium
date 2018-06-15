@@ -17,7 +17,7 @@ RUN sh /opt/intsallchrome
 #==================
 # Chrome webdriver
 #==================
-ARG CHROME_DRIVER_VERSION=2.36
+ARG CHROME_DRIVER_VERSION=2.25
 RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip \
   && rm -rf /opt/selenium/chromedriver \
   && unzip /tmp/chromedriver_linux64.zip -d /opt/selenium \
@@ -46,7 +46,7 @@ ENV NODE_UNREGISTER_IF_STILL_DOWN_AFTER 60000
 # As integer, maps to "downPollingLimit"
 ENV NODE_DOWN_POLLING_LIMIT 2
 # As string, maps to "applicationName"
-ENV NODE_APPLICATION_NAME "chrome65"
+ENV NODE_APPLICATION_NAME "chrome55"
 
 COPY generate_config /opt/selenium/generate_config
 RUN chmod +x /opt/selenium/generate_config
