@@ -49,7 +49,7 @@ ENV NODE_DOWN_POLLING_LIMIT 2
 ENV NODE_APPLICATION_NAME "chrome65"
 
 COPY generate_config /opt/selenium/generate_config
-RUN chmod +x /opt/selenium/generate_config \
+RUN chmod +x /opt/selenium/generate_config
 #=================================
 # Chrome Launch Script Modication
 #=================================
