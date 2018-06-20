@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM ymxhtest/ds-node-chrome:55
+FROM ymxhtest/ds-node-chrome:65
 MAINTAINER ymxhtest <ymxhtest@163.com>
 
 USER root
