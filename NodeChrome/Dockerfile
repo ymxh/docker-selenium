@@ -46,23 +46,21 @@ ENV NODE_UNREGISTER_IF_STILL_DOWN_AFTER 60000
 # As integer, maps to "downPollingLimit"
 ENV NODE_DOWN_POLLING_LIMIT 2
 # As string, maps to "applicationName"
-ENV NODE_APPLICATION_NAME "chrome55"
-
-COPY generate_config /opt/selenium/generate_config
-RUN chmod +x /opt/selenium/generate_config
+ENV NODE_APPLICATION_NAME "chrome65"
 
 #=================================
 # Chrome Launch Script Modication
 #=================================
 COPY chrome_launcher.sh /opt/google/chrome/google-chrome
-RUN chmod +x /opt/google/chrome/google-chrome
-
-RUN chown -R seluser:seluser /opt/selenium
+RUN chmod +x /opt/google/chrome/google-chrome \
+    && chown -R seluser:seluser /opt/selenium
 
 # Following line fixes
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
 RUN echo "DBUS_SESSION_BUS_ADDRESS=/dev/null" >> /etc/environment
 
-USER seluser
+COPY generate_config /opt/selenium/generate_config
+RUN chmod +x /opt/selenium/generate_config \
+    && sh /opt/selenium/generate_config > /opt/selenium/config.json
 
-RUN /opt/selenium/generate_config > /opt/selenium/config.json
+USER seluser

@@ -18,7 +18,7 @@ echo "
   \"maxSession\": \"$NODE_MAX_SESSION\",
   \"host\": \"$NODE_HOST\",
   \"port\": \"$NODE_PORT\",
-  \"register\": true,
+  \"register\": \"true\",
   \"registerCycle\": \"$NODE_REGISTER_CYCLE\",
   \"nodePolling\": \"$NODE_POLLING\",
   \"unregisterIfStillDownAfter\": \"$NODE_UNREGISTER_IF_STILL_DOWN_AFTER\",
