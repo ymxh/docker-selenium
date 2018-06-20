@@ -48,6 +48,8 @@ ENV NODE_DOWN_POLLING_LIMIT 2
 # As string, maps to "applicationName"
 ENV NODE_APPLICATION_NAME "chrome65"
 
+COPY generate_config /opt/selenium/generate_config
+RUN chmod +x /opt/selenium/generate_config \
 #=================================
 # Chrome Launch Script Modication
 #=================================
@@ -59,8 +61,7 @@ RUN chmod +x /opt/google/chrome/google-chrome \
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
 RUN echo "DBUS_SESSION_BUS_ADDRESS=/dev/null" >> /etc/environment
 
-COPY generate_config /opt/selenium/generate_config
-RUN chmod +x /opt/selenium/generate_config \
-    && sh /opt/selenium/generate_config > /opt/selenium/config.json
-
 USER seluser
+
+RUN /opt/selenium/generate_config > /opt/selenium/config.json
+
