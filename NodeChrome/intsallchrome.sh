@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHROME_VERSION=55.0.2883.75
+CHROME_VERSION=65.0.3325.181
 
 #============================================                                                                                                     
 # 下载 安装 Google Chrome                                                                                                                           
