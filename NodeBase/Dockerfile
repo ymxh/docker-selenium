@@ -51,7 +51,7 @@ ENV NODE_UNREGISTER_IF_STILL_DOWN_AFTER 60000
 # As integer, maps to "downPollingLimit"
 ENV NODE_DOWN_POLLING_LIMIT 2
 # As string, maps to "applicationName"
-ENV NODE_APPLICATION_NAME "chrome65"
+ENV NODE_APPLICATION_NAME ""
 
 USER seluser
 

@@ -41,5 +41,3 @@ RUN chmod +x /opt/selenium/generate_config
 
 USER seluser
 
-RUN /opt/selenium/generate_config > /opt/selenium/config.json
-
