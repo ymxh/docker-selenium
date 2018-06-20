@@ -30,7 +30,7 @@ RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.stor
 # Chrome Launch Script Modication
 #=================================
 COPY chrome_launcher.sh /opt/google/chrome/google-chrome
-RUN chmod +x /opt/google/chrome/google-chrome \
+RUN chmod +x /opt/google/chrome/google-chrome
 
 # Following line fixes
 # https://github.com/SeleniumHQ/docker-selenium/issues/87
