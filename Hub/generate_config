@@ -16,5 +16,3 @@ echo "
   \"maxSession\": $GRID_MAX_SESSION,
   \"unregisterIfStillDownAfter\": $GRID_UNREGISTER_IF_STILL_DOWN_AFTER
 }" 
-
-

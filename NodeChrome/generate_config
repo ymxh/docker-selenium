@@ -24,4 +24,3 @@ echo "
   \"unregisterIfStillDownAfter\": $NODE_UNREGISTER_IF_STILL_DOWN_AFTER,
   \"downPollingLimit\": $NODE_DOWN_POLLING_LIMIT
 }" 
-
