@@ -16,7 +16,7 @@ EXPOSE 4444
 # selenium_hub配置
 #========================
 # As string, maps to "host"
-ENV GRID_HUB_HOST 0.0.0.0
+ENV GRID_HUB_HOST 192.168.1.90
 # hub port
 ENV GRID_HUB_PORT 4444
 ENV GRID_THROW_ON_CAPABILITY_NOT_PRESENT true
