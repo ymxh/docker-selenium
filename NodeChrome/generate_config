@@ -10,7 +10,7 @@ echo "
       \"browserName\": \"chrome\",
       \"maxInstances\": $NODE_MAX_INSTANCES,
       \"seleniumProtocol\": \"WebDriver\",
-      \"applicationName\": \"$NODE_APPLICATION_NAME\",
+      \"applicationName\": \"chrome65\",
       \"webdriver.chrome.driver\":\"/usr/bin/chromedriver\"
     }
   ],
