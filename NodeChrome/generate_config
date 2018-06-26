@@ -14,13 +14,16 @@ echo "
       \"webdriver.chrome.driver\":\"/usr/bin/chromedriver\"
     }
   ],
-  \"proxy\": \"org.openqa.grid.selenium.proxy.DefaultRemoteProxy\",
-  \"maxSession\": $NODE_MAX_SESSION,
-  \"host\": $NODE_HOST,
-  \"port\": $NODE_PORT,
-  \"register\": true,
-  \"registerCycle\": $NODE_REGISTER_CYCLE,
-  \"nodePolling\": $NODE_POLLING,
-  \"unregisterIfStillDownAfter\": $NODE_UNREGISTER_IF_STILL_DOWN_AFTER,
-  \"downPollingLimit\": $NODE_DOWN_POLLING_LIMIT
+  \"configuration\":
+  {
+      \"proxy\": \"org.openqa.grid.selenium.proxy.DefaultRemoteProxy\",
+      \"maxSession\": $NODE_MAX_SESSION,
+      \"host\": $NODE_HOST,
+      \"port\": $NODE_PORT,
+      \"register\": true,
+      \"registerCycle\": $NODE_REGISTER_CYCLE,
+      \"nodePolling\": $NODE_POLLING,
+      \"unregisterIfStillDownAfter\": $NODE_UNREGISTER_IF_STILL_DOWN_AFTER,
+      \"downPollingLimit\": $NODE_DOWN_POLLING_LIMIT
+  }
 }" 
