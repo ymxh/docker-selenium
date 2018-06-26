@@ -17,6 +17,15 @@
 （2）下载chromedriver<br>
 （3）设置node节点参数<br>
 ## 5.NodeChromeDebug
-添加node chrome debug DockerFile，主要基于ds-node-chrome:65,同步到DockerHub镜像名称【ds-node-chrome-debug】<br>
+添加node chrome debug DockerFile，主要基于ds-node-chrome镜像,同步到DockerHub镜像名称【ds-node-chrome-debug】<br>
+（1）安装VNC服务<br>
+（2）运行node节点
+## 6.NodeFirefox
+添加node firefox DockerFile，主要基于ds-node-base:2.53.1，同步到DockerHub镜像名称【ds-node-firefox】<br>
+（1）离线安装chrome浏览器<br>
+（2）设置node节点参数<br>
+注意：由于本文所有操作使用的都是selenium2的版本，是自带geckodriver支持的，并且只支持47版本以下的firefox浏览器；如果需要使用47版本以上测试，需要使用selenium3的版本，下载正确映射的geckodriver版本<br>
+## 7.NodeFirefoxDebug
+添加node firefox debug DockerFile，主要基于ds-node-firefox镜像,同步到DockerHub镜像名称【ds-node-firefox-debug】<br>
 （1）安装VNC服务<br>
 （2）运行node节点
