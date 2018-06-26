@@ -13,7 +13,7 @@ echo "
       \"applicationName\": \"$NODE_APPLICATION_NAME\"
     }
   ],
-  \"configuration\"
+  \"configuration\":
   {
       \"proxy\": \"org.openqa.grid.selenium.proxy.DefaultRemoteProxy\",
       \"maxSession\": $NODE_MAX_SESSION,
