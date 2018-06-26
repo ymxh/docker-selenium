@@ -18,7 +18,6 @@ echo "
   {
       \"proxy\": \"org.openqa.grid.selenium.proxy.DefaultRemoteProxy\",
       \"maxSession\": $NODE_MAX_SESSION,
-      \"host\": $NODE_HOST,
       \"port\": $NODE_PORT,
       \"register\": true,
       \"registerCycle\": $NODE_REGISTER_CYCLE,
