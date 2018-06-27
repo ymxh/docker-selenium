@@ -10,7 +10,7 @@ echo "
       \"browserName\": \"firefox\",
       \"maxInstances\": $NODE_MAX_INSTANCES,
       \"seleniumProtocol\": \"WebDriver\",
-      \"applicationName\": \"$NODE_APPLICATION_NAME\"
+      \"applicationName\": \"firefox45\"
     }
   ],
   \"configuration\":
@@ -19,7 +19,10 @@ echo "
       \"maxSession\": $NODE_MAX_SESSION,
       \"port\": $NODE_PORT,
       \"register\": true,
-      \"registerCycle\": $NODE_REGISTER_CYCLE
+      \"registerCycle\": $NODE_REGISTER_CYCLE,
+      \"nodePolling\": $NODE_POLLING,
+      \"unregisterIfStillDownAfter\": $NODE_UNREGISTER_IF_STILL_DOWN_AFTER,
+      \"downPollingLimit\": $NODE_DOWN_POLLING_LIMIT
   }
 }" 
 
