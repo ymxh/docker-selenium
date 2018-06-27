@@ -6,7 +6,7 @@ echo "
 {
   \"capabilities\": [
     {
-      \"version\": \"$FIREFOX_VERSION\",
+      \"version\": \"45.0\",
       \"browserName\": \"firefox\",
       \"maxInstances\": $NODE_MAX_INSTANCES,
       \"seleniumProtocol\": \"WebDriver\",
