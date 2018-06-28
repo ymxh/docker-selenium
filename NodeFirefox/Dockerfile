@@ -22,9 +22,9 @@ RUN apt-get update -qqy \
   && mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
   && ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
 
-RUN apt-get update \
-  && apt-get install libasound2
-  && apt-get install libgtk2.0-0
+RUN apt-get update -qqy \
+  && apt-get -qqy install libasound2 \
+  && apt-get -qqy install libgtk2.0-0
 
 #============================================================
 # GeckoDriver,由于是selenium2，所以支持47版本以下的浏览器
