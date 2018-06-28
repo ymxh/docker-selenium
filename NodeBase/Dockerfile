@@ -37,7 +37,7 @@ ENV DISPLAY :99.0
 # As integer, maps to "maxInstances"
 ENV NODE_MAX_INSTANCES 5
 # As integer, maps to "maxSession"
-ENV NODE_MAX_SESSION 1
+ENV NODE_MAX_SESSION 5
 # As integer, maps to "port"
 ENV NODE_PORT 5555
 # In milliseconds, maps to "registerCycle"
