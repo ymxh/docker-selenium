@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM ymxhtest/ds-base:2.53.1
+FROM ymxhtest/ds-base:3.9.1
 MAINTAINER ymxhtest <ymxhtest@163.com>
 
 USER root
