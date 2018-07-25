@@ -1,66 +1,41 @@
 #!/bin/bash
 
-source /opt/bin/functions.sh
-/opt/selenium/generate_config > /opt/selenium/config.json
+#这句比较重要，表示整个文件都以/bin/bash编译，这样linux才能明白文件的内容
 
-export GEOMETRY="$SCREEN_WIDTH""x""$SCREEN_HEIGHT""x""$SCREEN_DEPTH"
+#定义ROOT、CONF变量
+ROOT=/opt/selenium
+CONF=$ROOT/config.json
 
-if [ ! -e /opt/selenium/config.json ]; then
-  echo No Selenium Node configuration file, the node-base image is not intended to be run directly. 1>&2
-  exit 1
-fi
+#>表示创建config.json文件，并把generate_config内容写入
+$ROOT/generate_config >$CONF
 
-if [ -z "$HUB_PORT_4444_TCP_ADDR" ]; then
-  echo Not linked with a running Hub container 1>&2
-  exit 1
-fi
+#echo打印一句话，cat查看文件内容
+echo "starting selenium hub with configuration:"
+cat $CONF
 
-function shutdown {
-  kill -s SIGTERM $NODE_PID
-  wait $NODE_PID
-}
-
-if [ ! -z "$REMOTE_HOST" ]; then
-  >&2 echo "REMOTE_HOST variable is *DEPRECATED* in these docker containers.  Please use SE_OPTS=\"-host <host> -port <port>\" instead!"
-  exit 1
-fi
-
+#-z判断为空，这里是判断$SE_OPTS这个变量不为空，则执行then，$SE_OPTS这个变量在docker启动容器时可传入，不传入则保持为空
 if [ ! -z "$SE_OPTS" ]; then
   echo "appending selenium options: ${SE_OPTS}"
 fi
 
-# TODO: Look into http://www.seleniumhq.org/docs/05_selenium_rc.jsp#browser-side-logs
+#定义一个shutdown函数，kill表示杀掉进程，wait等待kill任务执行完成
+function shutdown {
+    echo "shutting down hub.."
+    kill -s SIGTERM $NODE_PID
+    wait $NODE_PID
+    echo "shutdown complete"
+}
 
-SERVERNUM=$(get_server_num)
-
-rm -f /tmp/.X*lock
-
-env | cut -f 1 -d "=" | sort > asroot
-  sudo -E -u seluser -i env | cut -f 1 -d "=" | sort > asseluser
-  sudo -E -i -u seluser \
-  $(for E in $(grep -vxFf asseluser asroot); do echo $E=$(eval echo \$$E); done) \
-  DISPLAY=$DISPLAY \
-  xvfb-run -n $SERVERNUM --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" \
-  java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
-    -role node \
-    -hub http://$HUB_PORT_4444_TCP_ADDR:$HUB_PORT_4444_TCP_PORT/grid/register \
-    -nodeConfig /opt/selenium/config.json \
-    ${SE_OPTS} &
+#${JAVA_OPTS}在启动容器时传入，不传入保持为空；
+#启动hub节点，&表示同时执行把hub节点启动的进程id复制给NODE_PID变量
+java ${JAVA_OPTS} -jar /opt/selenium/selenium-server-standalone.jar \
+  -role hub \
+  -hubConfig $CONF \
+  ${SE_OPTS} &
 NODE_PID=$!
 
+#捕捉SIGTERM、SIGINT信号会调用shutdown信号，执行kill hub节点进程操作
 trap shutdown SIGTERM SIGINT
-for i in $(seq 1 10)
-do
-  xdpyinfo -display $DISPLAY >/dev/null 2>&1
-  if [ $? -eq 0 ]; then
-    break
-  fi
-  echo Waiting xvfb...
-  sleep 0.5
-done
 
-fluxbox -display $DISPLAY &
-
-x11vnc -forever -usepw -shared -rfbport 5900 -display $DISPLAY &
-
+#注意NODE_PID存的是$!，表示的上一个子进程id，并不是存了一个id值，这里是等待上面的捕捉信号执行shutdown任务完成
 wait $NODE_PID

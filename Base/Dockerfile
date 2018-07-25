@@ -81,5 +81,5 @@ RUN useradd seluser \
 #==========
 RUN mkdir -p /opt/selenium \
   && chown -R seluser:seluser /opt/selenium \
-  && wget --no-verbose https://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar \
+  && wget --no-verbose https://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar \
     -O /opt/selenium/selenium-server-standalone.jar
