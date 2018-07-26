@@ -10,7 +10,7 @@ USER root
 #=========
 # Firefox
 #=========
-ARG FIREFOX_VERSION=60.0
+ARG FIREFOX_VERSION=45.0
 RUN apt-get update -qqy \
   && apt-get -qqy --no-install-recommends install firefox \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/* \
@@ -34,9 +34,9 @@ RUN apt-get update -qqy \
 
 #============================================================
 # GeckoDriver,由于是selenium2，所以支持47版本以下的浏览器,不需要geckodriver，则先注释
-# 当使用其他浏览器版本时，去掉注释即可
+# 当使用Selenium3,其他浏览器版本时，去掉注释即可
 #============================================================
-ARG GECKODRIVER_VERSION=0.21.0
+ARG GECKODRIVER_VERSION=0.15.0
 RUN wget --no-verbose -O /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz \
   && rm -rf /opt/geckodriver \
   && tar -C /opt -zxf /tmp/geckodriver.tar.gz \
