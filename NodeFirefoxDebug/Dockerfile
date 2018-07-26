@@ -2,7 +2,7 @@
 # NOTE: DO *NOT* EDIT THIS FILE.  IT IS GENERATED.
 # PLEASE UPDATE Dockerfile.txt INSTEAD OF THIS FILE
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-FROM ymxhtest/ds-node-firefox:60
+FROM ymxhtest/ds-node-firefox:45
 MAINTAINER ymxhtest <ymxhtest@163.com>
 
 USER root
