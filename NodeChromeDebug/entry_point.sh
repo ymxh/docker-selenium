@@ -3,6 +3,7 @@
 #source作用是立即编译生效
 source /opt/bin/functions.sh
 /opt/selenium/generate_config > /opt/selenium/config.json
+cat /opt/selenium/generate_config
 
 #export声明变量，并复制到子shell中
 export GEOMETRY="$SCREEN_WIDTH""x""$SCREEN_HEIGHT""x""$SCREEN_DEPTH"
